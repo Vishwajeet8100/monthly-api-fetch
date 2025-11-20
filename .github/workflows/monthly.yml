@@ -1,13 +1,13 @@
-name: Monthly API Fetch
+name: API Fetch Every 6 Minutes
 
 on:
   schedule:
-    - cron: "*/6 * * * *"  # runs on 1st of every month at 00:00 UTC
-  
-  workflow_dispatch:      # (optional) lets you run manually
+    - cron: "*/6 * * * *"
+
+  workflow_dispatch:
 
 jobs:
-  fetch:
+  test-fetch:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: "3.10"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
